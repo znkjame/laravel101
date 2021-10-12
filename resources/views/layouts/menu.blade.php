@@ -30,5 +30,10 @@
                    class="@if(\Request::routeIs('tags.*')) bg-gray-700 @endif">Register</a>
             </li>
         @endif
+
+        <a href="{{ route('lang',['locale'=> 'th']) }}">TH</a>
+        <a href="{{ route('lang',['locale'=> 'en']) }}">EN</a>
+
+        <a href="{{ route('google.redirect') }}">Login with Google</a>
     </ul>
 </nav>

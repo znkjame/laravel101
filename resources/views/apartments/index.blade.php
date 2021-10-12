@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1 class="text-lg">Apartment List</h1>
+    <h1 class="text-lg">Apartment List {{ __('messages.apartments.lists') }}</h1>
 
     @can('create',\App\Models\Apartment::class)
     <a href="{{ route('apartments.create') }}">Add New Apartment</a>

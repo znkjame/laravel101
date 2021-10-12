@@ -63,6 +63,7 @@ class AuthController extends Controller
     {
         $user = JWTAuth::user();
         $task = $user->tasks;
+//        $tags = $task->tags();
         return response()->json($user);
     }
 

@@ -29,5 +29,17 @@ Route::resource('tags',\App\Http\Controllers\TagController::class);
 Route::get('tag/{slug}',[\App\Http\Controllers\TagController::class,'showBySlug'])
     ->name('tags.slug');
 Route::resource('rooms',\App\Http\Controllers\RoomController::class);
-
+Route::resource('images',\App\Http\Controllers\ImageController::class);
 require __DIR__.'/auth.php';
+
+Route::get('/lang/{locale}', function ($locale) {
+    if (! in_array($locale, ['en', 'th'])) {
+        abort(400);
+    }
+    App::setLocale($locale);
+
+    return redirect()->back();
+})->name('lang');
+
+Route::get('/callback',[\App\Http\Controllers\GoogleAuthController::class, 'callback'])->name('google.callback');
+Route::get('/redirect',[\App\Http\Controllers\GoogleAuthController::class, 'redirect'])->name('google.redirect');
