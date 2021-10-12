@@ -43,3 +43,5 @@ Route::get('/lang/{locale}', function ($locale) {
 
 Route::get('/callback',[\App\Http\Controllers\GoogleAuthController::class, 'callback'])->name('google.callback');
 Route::get('/redirect',[\App\Http\Controllers\GoogleAuthController::class, 'redirect'])->name('google.redirect');
+
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class,'index'])->middleware('auth');
